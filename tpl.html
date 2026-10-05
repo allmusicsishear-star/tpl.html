@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GitSync — Launch Film</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{--ink:#1F2630;--g:#1FA55B;--gl:#3FC582;--mut:#7A8290;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;height:100%;position:relative;background:#0E1013;overflow:hidden;font-family:'Inter Tight',system-ui,sans-serif}
+#stage{position:absolute;left:50%;top:50%;width:1080px;height:1920px;margin:-960px 0 0 -540px;transform:scale(var(--s,.3));overflow:hidden;color:var(--ink);background:radial-gradient(1100px 900px at 50% 42%,#FBFAF7,#F1F0EA 70%)}
+#stage::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(31,38,48,.09) 2px,transparent 2.5px);background-size:60px 60px;-webkit-mask-image:radial-gradient(closest-side at 50% 50%,#000 30%,transparent 100%);mask-image:radial-gradient(closest-side at 50% 50%,#000 30%,transparent 100%)}
+#stage:not(.go) *{animation-play-state:paused!important}
+#stage *{position:absolute;box-sizing:border-box}
+#stage i,#stage em,#stage s,#stage small,#stage b{position:static}
+@keyframes up{from{opacity:0;transform:translateY(44px)}to{opacity:1;transform:none}}
+@keyframes tx{0%{opacity:0;transform:translateY(40px);filter:blur(8px)}12%{opacity:1;transform:none;filter:blur(0)}86%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-28px)}}
+@keyframes life{0%{opacity:0}6%,94%{opacity:1}100%{opacity:0}}
+@keyframes bob{to{transform:translateY(-14px) rotate(1.5deg)}}
+@keyframes sh{from{transform:translateX(-120px)}to{transform:translateX(420px)}}
+@keyframes scr{from{opacity:0;transform:scale(1.03)}to{opacity:1;transform:none}}
+@keyframes tap{0%{opacity:0;transform:scale(.3)}30%{opacity:1}100%{opacity:0;transform:scale(1.7)}}
+@keyframes rg{from{opacity:.7;transform:scale(.6)}to{opacity:0;transform:scale(1.8)}}
+@keyframes pop{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:none}}
+.in{animation:up .9s cubic-bezier(.2,.8,.2,1) var(--d) both}
+.tx{animation:tx var(--len) cubic-bezier(.2,.8,.2,1) var(--d) both}
+.sc{inset:0;animation:life var(--len) linear var(--d) both}
+.h{left:0;width:1080px;text-align:center;font-weight:700;font-size:100px;line-height:1.02;letter-spacing:-.025em;text-transform:uppercase}
+.h em{font-style:normal;color:var(--g)}
+.folder{left:330px;top:915px;width:420px;height:330px;border-radius:38px;background:var(--ink);box-shadow:0 50px 80px -40px rgba(31,38,48,.5);animation:fold 5.6s ease .2s both}
+.folder::before{content:'';position:absolute;left:0;top:-46px;width:170px;height:70px;background:var(--ink);border-radius:26px 26px 0 0}
+@keyframes fold{0%{opacity:0;transform:scale(.9) translateY(30px)}10%{opacity:1;transform:none}84%{opacity:1;transform:none}100%{opacity:0;transform:scale(1.04)}}
+.chip{left:540px;top:1080px;margin:-38px 0 0 -150px;width:300px;height:76px;animation:trav 8s cubic-bezier(.65,0,.25,1) var(--dl) both}
+.chip b{display:flex;align-items:center;gap:14px;width:100%;height:100%;padding:0 22px;background:#fff;border:1px solid rgba(31,38,48,.08);border-radius:22px;font:500 25px 'JetBrains Mono',monospace;box-shadow:0 18px 40px -18px rgba(31,38,48,.35);animation:bob 2.3s ease-in-out 2 alternate}
+.chip i{width:30px;height:24px;border-radius:6px;background:var(--g);flex:none}
+.chip i.d{width:22px;height:28px;border-radius:5px;background:var(--ink);margin:0 4px}
+.chip b.c{color:var(--g);justify-content:center}
+@keyframes trav{0%{opacity:0;transform:translate(var(--x),var(--y)) rotate(var(--r)) scale(.7)}
+6%,57%{opacity:1;transform:translate(var(--x),var(--y)) rotate(var(--r)) scale(1)}
+72%,84%{opacity:1;transform:translate(var(--gx),var(--gy)) rotate(0) scale(1)}
+95%,100%{opacity:0;transform:translate(0,-120px) scale(.35)}}
+#logo{left:230px;top:650px;width:620px;height:620px;animation:lg 16s cubic-bezier(.25,.8,.25,1) 7s both}
+@keyframes lg{0%{opacity:0;transform:translateY(0) scale(.82);filter:blur(14px)}
+5%,28.75%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
+32.5%,96.5%{opacity:1;transform:translateY(-750px) scale(.22);filter:blur(0)}
+100%{opacity:0;transform:translateY(-750px) scale(.22)}}
+.ring{left:290px;top:710px;width:500px;height:500px;border-radius:50%;border:2px solid var(--gl);animation:rg 1.6s ease-out 7.3s both}
+.lab{left:0;width:1080px;top:310px;text-align:center;font-weight:700;font-size:64px;letter-spacing:.02em}
+.lab small{font:500 34px 'JetBrains Mono',monospace;color:var(--g);margin-right:22px;vertical-align:middle}
+.strip{left:90px;top:432px;width:900px;height:76px;display:flex;align-items:center}
+.strip>*{position:relative}
+.pl{flex:none;width:250px;height:76px;border-radius:22px;background:var(--ink);color:#fff;font:500 28px 'JetBrains Mono',monospace;display:flex;align-items:center;justify-content:center}
+.pl.r{background:#fff;color:var(--ink);border:2px solid rgba(31,38,48,.12)}
+.trk{flex:1;height:8px;background:repeating-linear-gradient(90deg,rgba(31,38,48,.2) 0 12px,transparent 12px 24px);border-radius:4px}
+.fill{left:0;top:0;height:8px;width:0;overflow:hidden;border-radius:4px;animation:fw 8.8s cubic-bezier(.6,0,.3,1) 14.2s both}
+.fill s{display:block;position:relative;width:var(--w,400px);height:8px;background:linear-gradient(90deg,var(--g),var(--gl));overflow:hidden}
+.fill s::after{content:'';position:absolute;top:0;width:120px;height:8px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.85),transparent);animation:sh 1.4s linear infinite}
+@keyframes fw{0%{width:0}25%{width:25%}49%{width:50%}75%{width:75%}100%{width:100%}}
+@keyframes fb{from{width:0}to{width:100%}}
+#phone{left:250px;top:600px;width:580px;height:1136px;padding:12px;border-radius:70px;background:var(--ink);box-shadow:0 70px 120px -40px rgba(31,38,48,.45),0 24px 40px -24px rgba(0,0,0,.3),inset 0 0 0 1px rgba(255,255,255,.08);animation:ph 11.6s cubic-bezier(.2,.8,.2,1) 11.8s both}
+@keyframes ph{0%{opacity:0;transform:translateY(160px) scale(.94)}4%,96%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-30px) scale(.98)}}
+.scrbox{position:relative!important;width:556px;height:1112px;border-radius:58px;overflow:hidden;background:#101317}
+.scrbox img{inset:0;width:100%;height:100%;animation:scr .55s ease var(--d) both}
+.tap{left:278px;top:var(--y);width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:rgba(63,197,130,.5);animation:tap .7s ease-out var(--d) both}
+.big{top:530px;width:220px;height:220px;border-radius:56px}
+.gly{left:60px;top:78px;width:100px;height:74px;border-radius:14px;background:var(--gl)}
+.gly::before{content:'';position:absolute;left:0;top:-16px;width:44px;height:24px;border-radius:9px 9px 0 0;background:var(--gl)}
+.cap{top:780px;width:260px;text-align:center;font:500 28px 'JetBrains Mono',monospace;color:var(--mut)}
+.badge{left:176px;top:-26px;width:84px;height:84px;border-radius:50%;background:var(--g);animation:pop .7s cubic-bezier(.3,1.6,.5,1) 24.6s both}
+.badge::after{content:'';position:absolute;left:29px;top:16px;width:20px;height:36px;border:solid #fff;border-width:0 8px 8px 0;transform:rotate(45deg)}
+.pill{display:inline-block;position:static!important;padding:28px 64px;border-radius:999px;background:var(--ink);color:#fff;font-size:38px;letter-spacing:.24em;line-height:1}
+.syn{display:inline-block;position:static!important;padding:16px 34px;border-radius:999px;background:#E3F3E9;color:var(--g);font:500 30px 'JetBrains Mono',monospace;letter-spacing:.14em;line-height:1}
+#rp{position:fixed;bottom:calc(24px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);display:none;padding:14px 28px;border:0;border-radius:999px;background:#fff;color:#1F2630;font:600 16px 'Inter Tight',sans-serif;z-index:5}
+</style></head><body>
+<div id="stage">
+<!-- 0–5 PROBLEM -->
+<div class="h tx" style="top:250px;--d:.5s;--len:2.6s">YOUR PROJECT<br>IS <em>READY.</em></div>
+<div class="h tx" style="top:250px;--d:3.1s;--len:2.3s">NOW, GET IT<br>TO <em>GITHUB.</em></div>
+<div class="folder"></div>
+<div class="chip" style="--x:-330px;--y:-330px;--r:-8deg;--gx:-160px;--gy:-180px;--dl:0s"><b><i></i>assets/</b></div>
+<div class="chip" style="--x:300px;--y:-390px;--r:6deg;--gx:160px;--gy:-180px;--dl:.15s"><b><i></i>patches/</b></div>
+<div class="chip" style="--x:-350px;--y:-60px;--r:-5deg;--gx:-160px;--gy:-60px;--dl:.3s"><b><i></i>src/</b></div>
+<div class="chip" style="--x:350px;--y:-100px;--r:7deg;--gx:160px;--gy:-60px;--dl:.1s"><b><i></i>translations/</b></div>
+<div class="chip" style="--x:-310px;--y:300px;--r:5deg;--gx:-160px;--gy:60px;--dl:.25s"><b><i class="d"></i>App.js</b></div>
+<div class="chip" style="--x:320px;--y:340px;--r:-6deg;--gx:160px;--gy:60px;--dl:.4s"><b><i class="d"></i>README.md</b></div>
+<div class="chip" style="--x:-100px;--y:-480px;--r:10deg;--gx:-160px;--gy:180px;--dl:.2s"><b class="c">{ }</b></div>
+<div class="chip" style="--x:130px;--y:480px;--r:-8deg;--gx:160px;--gy:180px;--dl:.35s"><b class="c">&lt;/&gt;</b></div>
+<!-- 5–14 TRANSITION + REVEAL -->
+<div class="h tx" style="top:250px;--d:5.5s;--len:3.2s">THERE'S A<br><em>SIMPLER</em> WAY.</div>
+<div class="ring"></div>
+<img id="logo" src="{{LOGO}}" alt="GitSync">
+<div class="h tx" style="top:1370px;font-size:112px;--d:9.3s;--len:2.5s">MEET <em>GITSYNC</em></div>
+<div id="phone"><div class="scrbox">
+<img src="{{S1}}" alt="" style="--d:11.8s">
+<img src="{{S2}}" alt="" style="--d:14.2s">
+<img src="{{S3}}" alt="" style="--d:15.3s">
+<img src="{{S4}}" alt="" style="--d:16.4s">
+<img src="{{S5}}" alt="" style="--d:18.5s">
+<img src="{{S6}}" alt="" style="--d:19.6s">
+<img src="{{S7}}" alt="" style="--d:20.8s">
+<div class="tap" style="--y:306px;--d:13.7s"></div>
+<div class="tap" style="--y:1005px;--d:14.95s"></div>
+<div class="tap" style="--y:1005px;--d:16s"></div>
+<div class="tap" style="--y:1005px;--d:19.15s"></div>
+<div class="tap" style="--y:1005px;--d:20.35s"></div>
+<div class="tap" style="--y:929px;--d:22.2s"></div>
+</div></div>
+<!-- 14–23 PRODUCT -->
+<div class="lab tx" style="--d:14.2s;--len:2.3s"><small>01</small>SELECT PROJECT</div>
+<div class="lab tx" style="--d:16.4s;--len:2.2s"><small>02</small>CONNECT GITHUB</div>
+<div class="lab tx" style="--d:18.5s;--len:2.4s"><small>03</small>SELECT REPOSITORY</div>
+<div class="lab tx" style="--d:20.8s;--len:2.4s"><small>04</small>PUSH PROJECT</div>
+<div class="sc" style="--d:14s;--len:9.4s"><div class="strip"><div class="pl">CustomerApp</div><div class="trk"><div class="fill"><s></s></div></div><div class="pl r">GitHub</div></div></div>
+<!-- 23–27 CORE MESSAGE -->
+<div class="sc" style="--d:23.2s;--len:4.3s">
+<div class="big in" style="left:190px;background:var(--ink);--d:23.3s"><div class="gly"></div></div>
+<div class="cap in" style="left:170px;--d:23.4s">CustomerApp</div>
+<div class="trk" style="left:410px;top:636px;width:260px"><div class="fill" style="animation:fb 1.1s cubic-bezier(.6,0,.3,1) 23.5s both"><s style="--w:260px"></s></div></div>
+<div class="big in" style="left:670px;background:#fff;border:3px solid var(--g);--d:23.3s;display:flex;align-items:center;justify-content:center;font:500 34px 'JetBrains Mono',monospace"><span style="position:static">GitHub</span><div class="badge"></div></div>
+<div class="h in" style="top:850px;font-size:0;--d:24.9s"><span class="syn">● SYNCED</span></div>
+<div class="h in" style="top:1010px;font-size:92px;--d:23.9s">YOUR PROJECT.</div>
+<div class="h in" style="top:1140px;font-size:92px;--d:24.8s">YOUR GITHUB.</div>
+<div class="h in" style="top:1270px;font-size:92px;color:var(--g);--d:25.7s">FROM YOUR PHONE.</div>
+</div>
+<!-- 27–30 BRAND -->
+<img class="in" src="{{LOGO}}" alt="" style="left:290px;top:470px;width:500px;height:500px;--d:27.2s">
+<div class="h in" style="top:1040px;font-size:132px;font-weight:800;letter-spacing:.14em;--d:27.7s">GITSYNC</div>
+<div class="h in" style="top:1240px;font-size:44px;font-weight:600;letter-spacing:.3em;color:var(--g);--d:28.2s">BUILD. SYNC. SHIP.</div>
+<div class="h in" style="top:1440px;font-size:0;--d:28.8s"><span class="pill">COMING SOON</span></div>
+<div class="h in" style="top:1620px;font-size:32px;font-weight:600;letter-spacing:.3em;color:var(--mut);--d:29.2s">FOLLOW FOR UPDATES</div>
+</div>
+<button id="rp">Replay</button>
+<script>
+let st=document.getElementById('stage'),tm;const rp=document.getElementById('rp');
+function fit(){document.documentElement.style.setProperty('--s',Math.min(document.body.clientWidth/1080,document.body.clientHeight/1920))}
+addEventListener('resize',fit);fit();
+function play(){rp.style.display='none';const c=st.cloneNode(true);c.classList.remove('go');st.replaceWith(c);st=c;requestAnimationFrame(()=>requestAnimationFrame(()=>c.classList.add('go')));clearTimeout(tm);tm=setTimeout(()=>{rp.style.display='block'},31000)}
+Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,1500))]).then(play);
+rp.onclick=play;
+</script></body></html>
